@@ -3,7 +3,7 @@
 At Pewlett-Packard many employees are approaching retirement age and it might result a good amount of Job openings in the company. Bobby has been given following tasks by his manager so that he can prepare an analysis for “Silver Tsunami” - 
     * 	To determine the number of retiring employees per title,
     * 	To identify employees who are eligible to participate in a mentorship program.
- ## Resources:
+### Resources:
 * PostgreSQL 13
 * pgAdmin 4
 * Csv files - 
@@ -17,7 +17,7 @@ The csv files are imported to create 6 different tables based on the ERD (entity
 EmployeesDB.png. Based on this we establish relationship(primary & foreign key) between tables and build the PH-EmployeeDB for Pewlett-Packard. Below attached is the schema of the database.
 schema.sql
 
-# Analysis - 
+### Analysis - 
 Deliverable 1 - Determining The Number of Retiring Employees by Title.
 This is achieved in 3 steps - getting retirement_titles.
 
@@ -42,11 +42,11 @@ Attachment : Employee_Database_challenge.sql
 3. When we do count on the titles group by title, the output that we see the total number of employees who will retiring in each category of the title. We see that there is about (35%+34%) of senior staff/senior engineers are getting retired i.e about 50,842 employees . 
 4. Deliverable 2 shows that 1549 employees are currently eligible for mentorship. Like above here also around 65-70 % of senior staff /senior engineers are eligible for this program.
 
-# Results: 
+### Results: 
 To prepare for the above analysis, the task can be divided into 2 sub
 
 
-# Summary: 
+### Summary: 
 Provide high-level responses to the following questions, then provide two additional queries or tables that may provide more insight into the upcoming "silver tsunami."
 
 * If we do similar analysis for employees who are retiring as based on their department, we get below distinct values : Summary1.pngThe table gives us the no. of roles to be filled in each department.
