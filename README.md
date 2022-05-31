@@ -1,11 +1,9 @@
-# Pewlett-Hackard-Analysis
 # Overview of the analysis:
 
 At Pewlett-Packard many employees are approaching retirement age and it might result a good amount of Job openings in the company. Bobby has been given following tasks by his manager so that he can prepare an analysis for “Silver Tsunami” - 
     * 	To determine the number of retiring employees per title,
     * 	To identify employees who are eligible to participate in a mentorship program.
-    
-## Resources:
+ ## Resources:
 * PostgreSQL 13
 * pgAdmin 4
 * Csv files - 
@@ -26,19 +24,16 @@ This is achieved in 3 steps - getting retirement_titles.
 	1) We create a new table “retirement_titles” containing employee details -  emp_no, first_name,last_name and title , to_date & from_date from titles table.Both the tables are joined using an INNER JOIN (getting all the records from the both employee & title tables for the emp_no in both.) where the birth_date is between the year (1952 and 1955). 
 	2) “retirement_titles” contains duplicate records , with multiple entires for the employees with different titles that change over years. To get unique rows we use DISTINCT COUNT ON() employees  , for all those who are current employees (to_date = ‘9999-01-01’) into “unique_titles”.
 	3) We get the count of retiring employees by titles, ordered by emp_no. 
+<img width="718" alt="query1" src="https://user-images.githubusercontent.com/98556229/171276949-dc9cbe84-478f-4f20-8505-5d49fe4fd6f6.png">
 
-<img width="624" alt="query1" src="https://user-images.githubusercontent.com/98556229/171274979-6ec9c3f6-4f5f-4f8a-82e4-db27be42853e.png">
+<img width="608" alt="query2" src="https://user-images.githubusercontent.com/98556229/171276958-3df302b5-a24e-4e8b-a073-679583d5bc55.png">
 
-<img width="518" alt="query2" src="https://user-images.githubusercontent.com/98556229/171274984-d73653de-1743-4f83-a959-fecf8e0cc65d.png">
-
-<img width="250" alt="query3" src="https://user-images.githubusercontent.com/98556229/171274992-25c25e24-3351-4e5e-9ffc-35c8eb4bb949.png">
-
+<img width="313" alt="query3" src="https://user-images.githubusercontent.com/98556229/171276973-acbf8771-ed98-49e1-ba28-4ad02bcdbf93.png">
 
 Deliverable #2 The Employees Eligible for the Mentorship Program - 
 To create a “mentorship_eligibilty” table for “current employees” we join “employees”, “titles” & “dept_emp” tables based on the criteria of primary key(emp_no) and eligibility criteria of “birth_date” between(jan-dec 1965). 
 
-<img width="750" alt="query4" src="https://user-images.githubusercontent.com/98556229/171275022-ef0587d8-8edf-4f3d-9f40-e01a8cc8a539.png">
-
+<img width="798" alt="query4" src="https://user-images.githubusercontent.com/98556229/171276995-15ef8bc0-e811-4c7b-8133-11fd233da6b9.png">
 
 Attachment : Employee_Database_challenge.sql
 
@@ -54,16 +49,14 @@ To prepare for the above analysis, the task can be divided into 2 sub
 # Summary: 
 Provide high-level responses to the following questions, then provide two additional queries or tables that may provide more insight into the upcoming "silver tsunami."
 
-* If we do similar analysis for employees who are retiring as based on their department, we get below distinct values :
- <img width="277" alt="summary-1" src="https://user-images.githubusercontent.com/98556229/171275093-a980011d-beea-4ecd-93db-b8c59d44d450.png">
-
-The table gives us the no. of roles to be filled in each department.
-* If we make an analysis of eligible employees for mentorship based on the department we see , that the number remains the same who are retirement-ready employees to mentor the next generation of Pewlett Hackard employees.
-* <img width="812" alt="summary-2" src="https://user-images.githubusercontent.com/98556229/171275112-7b6f2bb0-fa25-4861-af8f-74c3e473fc38.png">
+* If we do similar analysis for employees who are retiring as based on their department, we get below distinct values : Summary1.pngThe table gives us the no. of roles to be filled in each department.
+<img width="532" alt="summar1" src="https://user-images.githubusercontent.com/98556229/171277034-65194167-0768-4b4f-9169-39a640bd92a8.png">
 
 
+* If we make an analysis of eligible employees for mentorship based on the department we see , that the number remains the same who are retirement-ready employees to mentor the next generation of Pewlett Hackard employees. 
+* 
+<img width="314" alt="summary2" src="https://user-images.githubusercontent.com/98556229/171277050-ba7a69c0-262c-47aa-9415-7ddf79d6f8f2.png">
 
-
-
+<img width="831" alt="summary3" src="https://user-images.githubusercontent.com/98556229/171277075-ce31b183-ff02-41e9-9121-b9726cdf9f23.png">
 
 
