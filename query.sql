@@ -125,3 +125,66 @@ AND (de.to_date = '9999-01-01');
 
 
 
+
+-- List of managers per department
+SELECT  dm.dept_no,
+        d.dept_name,
+        dm.emp_no,
+        ce.last_name,
+        ce.first_name,
+        dm.from_date,
+        dm.to_date
+INTO manager_info
+FROM dept_manager AS dm
+    INNER JOIN departments AS d
+        ON (dm.dept_no = d.dept_no)
+    INNER JOIN current_emp AS ce
+        ON (dm.emp_no = ce.emp_no);
+
+-- my attempt at the query for list of manager per department.
+
+SELECT CE.EMP_NO,
+	CE.LAST_NAME,
+	CE.FIRST_NAME,
+	CE.TO_DATE,
+	D.DEPT_NO,
+	D.DEPT_NAME,
+	DM.FROM_DATE
+FROM CURRENT_EMP AS CE
+INNER JOIN DEPT_MANAGER AS DM ON (CE.EMP_NO = DM.EMP_NO)
+INNER JOIN DEPARTMENTS AS D ON (D.DEPT_NO = DM.DEPT_NO);
+
+
+-- skill drill Create a query that will return only the information relevant to the Sales team.
+-- returns 41380 rows
+
+SELECT RI.EMP_NO,
+	RI.FIRST_NAME,
+	RI.LAST_NAME,
+	D.DEPT_NAME
+FROM RETIREMENT_INFO AS RI
+INNER JOIN DEPT_EMP AS DE ON RI.EMP_NO = De.EMP_NO
+INNER JOIN departments AS D ON D.DEPT_NO = DE.DEPT_NO;
+
+
+-- List of Sales employees
+SELECT CE.EMP_NO,
+	CE.FIRST_NAME,
+	CE.LAST_NAME,
+	D.DEPT_NAME
+FROM CURRENT_EMP AS CE
+INNER JOIN DEPT_EMP AS DE ON CE.EMP_NO = DE.EMP_NO
+INNER JOIN DEPARTMENTS AS D ON DE.DEPT_NO = D.DEPT_NO
+WHERE D.DEPT_NAME in ('Sales');
+
+-- List of Sales & Development team employees
+SELECT CE.EMP_NO,
+	CE.FIRST_NAME,
+	CE.LAST_NAME,
+	D.DEPT_NAME
+FROM CURRENT_EMP AS CE
+INNER JOIN DEPT_EMP AS DE ON CE.EMP_NO = DE.EMP_NO
+INNER JOIN DEPARTMENTS AS D ON DE.DEPT_NO = D.DEPT_NO
+WHERE D.DEPT_NAME in ('Sales','Development')
+ORDER BY CE.EMP_NO;
+
